@@ -1,0 +1,68 @@
+{
+  "version": "1.1",
+  "last_updated": "2026-09-04",
+  "accounts": {
+    "account_a": {
+      "id": "account_a",
+      "name": "账号A-人文社科",
+      "platform": "抖音",
+      "update_frequency": "每周3-4更",
+      "persona": {
+        "name": "知识分享者",
+        "description": "情绪饱满、知识及阅历丰富、积极向上的分享者",
+        "tone": "温暖而有深度，像一位阅历丰富的朋友在跟你聊天",
+        "voice": "第一人称，口语化，有情绪起伏，不端着",
+        "core_traits": ["情绪饱满有感染力", "知识渊博旁征博引", "积极向上给人力量", "真诚不装有烟火气"]
+      },
+      "viral_formula": {
+        "name": "现象→知识→案例→共鸣→方案 五段式",
+        "structure": [
+          "现象引入：用大众熟悉的日常现象切入",
+          "深度知识：从人文社科角度解读深层原因",
+          "具体案例：用真实可感的例子让人感同身受",
+          "情感共鸣：点出观众内心深处的情绪和焦虑",
+          "解决方案：给出具体可操作的改变方法"
+        ]
+      },
+      "content_categories": ["职场心理", "情感关系", "自我成长", "社会现象解读", "人文知识科普"],
+      "tags": ["职场","情感","心理","人际关系","自我成长","焦虑","孤独","熬夜","拖延","社交恐惧","原生家庭","认知升级","哲学","社会学","心理学"],
+      "scoring_weights": {"heat": 0.4, "knowledge_relevance": 0.3, "pain_point_accuracy": 0.3}
+    },
+    "account_b": {
+      "id": "account_b",
+      "name": "账号B-星座情感",
+      "platform": "抖音",
+      "update_frequency": "每周3-4更",
+      "persona": {
+        "name": "星座好朋友",
+        "description": "情绪积极、乐于分享星座知识的好朋友",
+        "tone": "亲切活泼，像闺蜜一样聊天，有同理心",
+        "voice": "第二人称为主，语气亲切，善用'你'开头",
+        "core_traits": ["情绪积极有治愈感", "懂星座更懂人", "乐于分享没有距离感", "像闺蜜一样贴心"]
+      },
+      "viral_formula": {
+        "name": "星座→情绪→性格→建议 四段式",
+        "structure": [
+          "星座标签：用星座/星象话题快速锁定目标人群",
+          "情绪认同：精准说出这个星座人群的内心感受",
+          "性格解析：深入分析性格特征和行为模式",
+          "心理建议：给出暖心的心理建议和行动指引"
+        ]
+      },
+      "content_categories": ["星座性格", "星座情感", "星座运势", "星座配对", "心理疗愈"],
+      "tags": ["星座","白羊座","金牛座","双子座","巨蟹座","狮子座","处女座","天秤座","天蝎座","射手座","摩羯座","水瓶座","双鱼座","上升星座","月亮星座","恋爱","复合","脱单","情感","心理"],
+      "scoring_weights": {"heat": 0.4, "knowledge_relevance": 0.3, "pain_point_accuracy": 0.3}
+    }
+  },
+  "global_settings": {
+    "zan_zan_ratio_threshold": 20,
+    "collection_frequency": "每天两次",
+    "collection_times": ["10:00", "22:00"],
+    "timezone": "Asia/Shanghai",
+    "platforms": ["抖音", "小红书", "微博", "今日头条", "知乎"],
+    "primary_llm": "DeepSeek",
+    "orchestrator": "Coze扣子",
+    "database": "Notion",
+    "knowledge_base": "Obsidian"
+  }
+}
