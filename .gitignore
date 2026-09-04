@@ -1,0 +1,14 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local media and transcript output
+phase1-topic-hunter/transcript-tool/temp/
+phase1-topic-hunter/transcript-tool/output/
