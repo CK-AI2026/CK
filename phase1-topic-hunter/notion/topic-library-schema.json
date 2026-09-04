@@ -1,0 +1,42 @@
+{
+  "database_name": "选题库 · Topic Library",
+  "description": "创作者AI工作台 - 双账号选题库，支持热点采集、赞赞比分析、智能打分、人工审核",
+  "accounts": ["账号A-人文社科", "账号B-星座情感"],
+  "properties": [
+    {"field_name": "选题标题", "field_type": "title", "description": "选题的一句话核心概括"},
+    {"field_name": "所属账号", "field_type": "select", "options": ["账号A-人文社科", "账号B-星座情感", "双账号通用"]},
+    {"field_name": "选题状态", "field_type": "select", "options": ["待审核", "已通过-素材库", "待定", "已淘汰", "已制作", "已发布"], "default": "待审核"},
+    {"field_name": "来源平台", "field_type": "select", "options": ["抖音", "小红书", "微博", "今日头条", "知乎", "手动录入", "其他"]},
+    {"field_name": "来源链接", "field_type": "url", "description": "原始内容链接或参考视频链接"},
+    {"field_name": "热度评分", "field_type": "number", "range": "0-100"},
+    {"field_name": "知识关联度", "field_type": "number", "range": "0-100"},
+    {"field_name": "痛点精准度", "field_type": "number", "range": "0-100"},
+    {"field_name": "综合评分", "field_type": "formula", "formula": "round(prop(\"热度评分\") * 0.4 + prop(\"知识关联度\") * 0.3 + prop(\"痛点精准度\") * 0.3)"},
+    {"field_name": "优先级", "field_type": "select", "options": ["🔥 紧急制作", "⭐ 高优先", "📌 中优先", "📝 低优先"]},
+    {"field_name": "点赞数", "field_type": "number", "description": "参考视频的点赞数"},
+    {"field_name": "评论数", "field_type": "number"},
+    {"field_name": "收藏数", "field_type": "number"},
+    {"field_name": "分享数", "field_type": "number"},
+    {"field_name": "赞赞比", "field_type": "number", "description": "播放量/点赞数，越低越好"},
+    {"field_name": "赞赞比等级", "field_type": "select", "options": ["S级-≤10", "A级-≤20", "B级-≤50", "C级-≤100", "D级->100"]},
+    {"field_name": "收藏点赞比", "field_type": "number", "description": "收藏数/点赞数*100"},
+    {"field_name": "高赞评论", "field_type": "rich_text"},
+    {"field_name": "原始作者", "field_type": "rich_text"},
+    {"field_name": "选题标签", "field_type": "multi_select", "options": ["职场","情感","心理","人际关系","自我成长","焦虑","孤独","熬夜","拖延","社交恐惧","原生家庭","恋爱","婚姻","分手","星座","白羊座","金牛座","双子座","巨蟹座","狮子座","处女座","天秤座","天蝎座","射手座","摩羯座","水瓶座","双鱼座","上升星座","月亮星座","水逆","复合","脱单","人文","哲学","社会学","历史","心理学","认知升级"]},
+    {"field_name": "选题概括", "field_type": "rich_text"},
+    {"field_name": "爆点预判", "field_type": "rich_text"},
+    {"field_name": "审核备注", "field_type": "rich_text"},
+    {"field_name": "文字稿", "field_type": "rich_text", "description": "从来源视频提取的逐字稿；由逐字稿监听器写入"},
+    {"field_name": "关联知识", "field_type": "relation", "relation_database_id": "3cfb48a1-123f-8114-9b36-c67bbe85e950", "description": "关联知识库条目，支持多条"},
+    {"field_name": "采集时间", "field_type": "created_time"},
+    {"field_name": "审核时间", "field_type": "date"},
+    {"field_name": "生成逐字稿", "field_type": "checkbox"}
+  ],
+  "views": [
+    {"view_name": "📥 待审核池", "view_type": "table", "filter": "选题状态 = 待审核", "sort": "综合评分 降序"},
+    {"view_name": "✅ 素材库", "view_type": "board", "filter": "选题状态 = 已通过-素材库", "group_by": "所属账号"},
+    {"view_name": "📊 全部选题", "view_type": "table", "filter": "无", "sort": "采集时间 降序"},
+    {"view_name": "🔥 热度榜", "view_type": "gallery", "filter": "选题状态 ≠ 已淘汰", "sort": "综合评分 降序"},
+    {"view_name": "🏷️ 按标签", "view_type": "board", "filter": "无", "group_by": "选题标签"}
+  ]
+}
